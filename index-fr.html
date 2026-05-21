@@ -1,0 +1,1589 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SymbioGreens Balponics | Presentation Nord-Est RD</title>
+  <style>
+    :root {
+      --ink: #17201b;
+      --muted: #5d6f64;
+      --paper: #fbfcf6;
+      --panel: #ffffff;
+      --sage: #dfead8;
+      --leaf: #2f6f3e;
+      --deep: #10251b;
+      --blue: #0f6982;
+      --gold: #c99132;
+      --clay: #8c4f36;
+      --line: rgba(23, 32, 27, 0.12);
+      --shadow: 0 24px 70px rgba(20, 33, 26, 0.16);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(115deg, rgba(223,234,216,0.72), rgba(246,241,226,0.9) 48%, rgba(220,234,239,0.72)),
+        #eef2e7;
+      line-height: 1.5;
+    }
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.8rem clamp(1rem, 2vw, 2rem);
+      background: rgba(251, 252, 246, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: conic-gradient(from 180deg, var(--leaf), var(--blue), var(--gold), var(--leaf));
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .nav {
+      display: flex;
+      gap: 0.3rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a, .button, .download-link {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.72);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 0.55rem 0.82rem;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .button.primary, .download-link.primary {
+      background: var(--deep);
+      color: white;
+      border-color: var(--deep);
+    }
+
+    main {
+      width: min(1480px, calc(100% - 2rem));
+      margin: 1rem auto 4rem;
+    }
+
+    section {
+      margin: 1rem 0;
+      padding: clamp(1rem, 2.6vw, 2.4rem);
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(255,255,255,0.9);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+    }
+
+    .hero {
+      min-height: calc(100vh - 90px);
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(1.2rem, 3vw, 3rem);
+      align-items: stretch;
+      overflow: hidden;
+      padding: 0;
+      background: var(--deep);
+      color: white;
+    }
+
+    .hero-copy {
+      padding: clamp(1.4rem, 4vw, 4rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      width: fit-content;
+      border: 1px solid rgba(255,255,255,0.24);
+      border-radius: 999px;
+      padding: 0.45rem 0.8rem;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #dfead8;
+    }
+
+    h1 {
+      margin: 1.1rem 0;
+      max-width: 860px;
+      font-size: clamp(2.4rem, 6vw, 6.4rem);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 760px;
+      color: rgba(255,255,255,0.78);
+      font-size: clamp(1rem, 1.7vw, 1.35rem);
+    }
+
+    .hero-media {
+      position: relative;
+      min-height: 560px;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+
+    .metric {
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 1rem;
+      min-width: 0;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: clamp(1.5rem, 2.2vw, 2.4rem);
+      line-height: 1.05;
+      color: white;
+    }
+
+    .metric span { color: rgba(255,255,255,0.68); font-weight: 700; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: end;
+      margin-bottom: 1.4rem;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.7rem, 3vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+      color: var(--deep);
+    }
+
+    h3 {
+      margin: 0 0 0.7rem;
+      font-size: 1.2rem;
+      line-height: 1.15;
+    }
+
+    .section-head p {
+      margin: 0;
+      max-width: 600px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      min-width: 0;
+    }
+
+    .dark-card {
+      background: var(--deep);
+      color: white;
+      border-color: rgba(255,255,255,0.12);
+    }
+
+    .dark-card p, .dark-card li { color: rgba(255,255,255,0.76); }
+
+    .image-card {
+      padding: 0;
+      overflow: hidden;
+      background: #101815;
+      color: white;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .image-card .caption {
+      padding: 1rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      border-radius: 999px;
+      background: var(--sage);
+      color: var(--deep);
+      padding: 0.28rem 0.65rem;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 850;
+      margin-bottom: 0.75rem;
+    }
+
+    .tag.blue { background: #d8edf1; color: #074c5d; }
+    .tag.gold { background: #f4e3c8; color: #6b4210; }
+    .tag.clay { background: #f1ded4; color: #68341f; }
+
+    .list {
+      display: grid;
+      gap: 0.55rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      padding-left: 1rem;
+      border-left: 3px solid var(--sage);
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .statline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .statbox {
+      background: #f5f8ef;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+
+    .statbox strong {
+      display: block;
+      font-size: clamp(1.5rem, 2.2vw, 2.35rem);
+      line-height: 1.05;
+      color: var(--leaf);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      padding: 0.82rem;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--deep);
+      color: white;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    td:last-child, th:last-child { text-align: right; }
+    tbody tr:nth-child(even) { background: rgba(223,234,216,0.32); }
+
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    label {
+      display: grid;
+      gap: 0.45rem;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 0.82rem;
+    }
+
+    input[type="number"], input[type="range"], select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 0.72rem;
+      font: inherit;
+      background: white;
+      color: var(--ink);
+    }
+
+    input[type="range"] {
+      padding: 0;
+      accent-color: var(--leaf);
+    }
+
+    .scenario-tabs {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .tab {
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 999px;
+      padding: 0.6rem 0.9rem;
+      cursor: pointer;
+      font-weight: 850;
+    }
+
+    .tab.active {
+      background: var(--deep);
+      color: white;
+      border-color: var(--deep);
+    }
+
+    .total-band {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      padding: 1.2rem;
+      background: linear-gradient(90deg, var(--deep), #204f36);
+      color: white;
+      border-radius: var(--radius);
+    }
+
+    .total-band strong {
+      font-size: clamp(1.8rem, 4vw, 3.6rem);
+      line-height: 1;
+    }
+
+    .progress {
+      height: 12px;
+      background: rgba(23,32,27,0.1);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 0.8rem;
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      width: 50%;
+      background: linear-gradient(90deg, var(--gold), var(--leaf));
+      border-radius: inherit;
+    }
+
+    .crop-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.8rem;
+    }
+
+    .chip {
+      padding: 0.36rem 0.58rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      font-weight: 750;
+      color: var(--muted);
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    .chip:hover, .info-card:hover {
+      border-color: rgba(47, 111, 62, 0.45);
+      box-shadow: 0 12px 36px rgba(20, 33, 26, 0.14);
+    }
+
+    .info-card {
+      cursor: pointer;
+      transition: box-shadow 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+    }
+
+    .info-card:hover { transform: translateY(-2px); }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      background: rgba(9, 20, 14, 0.62);
+      backdrop-filter: blur(10px);
+    }
+
+    .modal-backdrop.open { display: flex; }
+
+    .modal {
+      width: min(760px, 100%);
+      max-height: min(760px, calc(100vh - 2rem));
+      overflow: auto;
+      border-radius: var(--radius);
+      background: var(--paper);
+      box-shadow: 0 32px 90px rgba(0,0,0,0.34);
+      border: 1px solid rgba(255,255,255,0.8);
+    }
+
+    .modal header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: start;
+      padding: 1.2rem 1.2rem 0;
+    }
+
+    .modal h3 {
+      font-size: clamp(1.4rem, 2.4vw, 2rem);
+      margin: 0;
+    }
+
+    .modal-body { padding: 1rem 1.2rem 1.2rem; }
+
+    .modal-body p { color: var(--muted); font-weight: 650; }
+
+    .modal-source {
+      display: inline-flex;
+      margin: 0.4rem 0.4rem 0 0;
+      padding: 0.38rem 0.58rem;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--line);
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .founder-layout {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .founder-photo {
+      min-height: 100%;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--deep);
+      border: 1px solid var(--line);
+    }
+
+    .founder-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .close-modal {
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 1rem;
+      padding: 1rem;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .step strong { color: var(--leaf); }
+
+    footer {
+      width: min(1480px, calc(100% - 2rem));
+      margin: 0 auto 3rem;
+      color: var(--muted);
+      text-align: center;
+      font-weight: 700;
+    }
+
+    @media (max-width: 1050px) {
+      .hero, .grid-2, .grid-3, .grid-4, .controls, .statline {
+        grid-template-columns: 1fr;
+      }
+
+      .founder-layout { grid-template-columns: 1fr; }
+      .founder-photo img { min-height: 360px; }
+
+      .hero-media { min-height: 360px; }
+      .hero-metrics { grid-template-columns: 1fr; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 0.7rem; }
+      .nav { display: none; }
+      .step { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      @page { size: letter landscape; margin: 0.35in; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .topbar, .button, .download-link, .scenario-tabs, .controls, .modal-backdrop { display: none !important; }
+      body { background: white; font-size: 10.5pt; line-height: 1.35; }
+      main { width: 100%; margin: 0; }
+      section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #d9ded4;
+        margin: 0 0 0.22in;
+        padding: 0.28in;
+      }
+      .hero {
+        min-height: 6.8in;
+        color: white;
+        break-after: page;
+        page-break-after: always;
+      }
+      h1 { font-size: 42pt; }
+      h2 { font-size: 24pt; }
+      h3 { font-size: 13pt; }
+      p, li, td, th { font-size: 9.4pt; }
+      .grid-2 { gap: 0.18in; }
+      .grid-3, .grid-4 { gap: 0.14in; }
+      .card { padding: 0.14in; }
+      .image-card img { height: 1.75in; }
+      .metric, .statbox { padding: 0.12in; }
+      .metric strong, .statbox strong, .total-band strong { font-size: 18pt; }
+      .total-band { padding: 0.16in; }
+      table { font-size: 8.8pt; }
+      th, td { padding: 0.055in 0.075in; }
+      footer { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">SG</div>
+      <div>SymbioGreens Balponics</div>
+    </div>
+    <nav class="nav" aria-label="Presentation sections">
+      <a href="#model">Modèle</a>
+      <a href="#systems">Systèmes</a>
+      <a href="#founder">Fondateur</a>
+      <a href="#financials">Finances</a>
+      <a href="#investor">Investisseur</a>
+      <a href="#go-to-market">Ventes</a>
+      <a href="#conclusion">Conclusion</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <span class="eyebrow">Nord-Est de la République dominicaine | Ferme CEA premium</span>
+        <h1>Cultures hydroponiques spécialisées, plantes médicinales, champignons gastronomiques et transformation à valeur ajoutée.</h1>
+        <p>
+          Une plateforme agricole en environnement contrôlé conçue pour remplacer les produits spécialisés importés
+          destinés aux resorts, chefs et distributeurs par une production locale le jour même, une qualité premium constante
+          et plusieurs canaux de revenus.
+        </p>
+        <div class="hero-metrics">
+          <div class="metric"><strong>$131K-$171K</strong><span>revenu mensuel de base</span></div>
+          <div class="metric"><strong>$200K-$250K</strong><span>potentiel avec meilleure utilisation</span></div>
+          <div class="metric"><strong>$1.145M</strong><span>capitalisation complète de lancement</span></div>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="assets/resort-products.png" alt="Produits SymbioGreens emballés pour resorts et acheteurs hôteliers">
+      </div>
+    </section>
+
+    <section id="confidentiality">
+      <div class="section-head">
+        <div>
+          <span class="tag clay">Confidentiel et propriétaire</span>
+          <h2>Document privé d'investissement préparé uniquement pour des destinataires sélectionnés.</h2>
+        </div>
+        <p>
+          Cette présentation contient des concepts d'affaires confidentiels, des hypothèses financières,
+          une stratégie de production, un positionnement fournisseurs et marchés, des recherches développées
+          par le fondateur et une planification propriétaire liée à SymbioGreens Balponics.
+        </p>
+      </div>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Restrictions d'utilisation</h3>
+          <p>
+            En consultant ce document, le destinataire accepte de ne pas copier, distribuer, publier,
+            reproduire, utiliser à des fins concurrentes ni divulguer son contenu à des tiers sans
+            l'accord écrit préalable de Bernard Balmir / Balponics SymbioGreens.
+          </p>
+        </article>
+        <article class="card dark-card">
+          <h3>Note importante</h3>
+          <p>
+            Ce document est fourni uniquement à des fins de discussion et d'évaluation. Il ne constitue pas
+            une offre publique, une sollicitation de titres, un avis juridique, un conseil fiscal ni un état
+            financier audité. Toutes les projections sont des estimations de planification soumises à la due
+            diligence, aux contrats, aux permis, aux conditions de marché et à l'exécution.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="model">
+      <div class="section-head">
+        <div>
+          <span class="tag">Résumé exécutif</span>
+          <h2>Une ferme premium diversifiée construite autour de la demande des chefs et du marché bien-être.</h2>
+        </div>
+        <p>
+          Le modèle combine herbes hydroponiques, jeunes pousses, fleurs comestibles, plantes médicinales,
+          champignons gastronomiques, cultures spécialisées sur substrat, produits séchés et expériences à la ferme.
+        </p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <span class="tag blue">Vide du marché</span>
+          <h3>Les produits spécialisés importés sont vulnérables</h3>
+          <p>Les hôtels et restaurants importent fréquemment des micro-pousses, herbes, fleurs comestibles, champignons et herbes asiatiques depuis Miami, l'Europe et l'Amérique centrale.</p>
+          <ul class="list">
+            <li>Les longues chaînes logistiques réduisent la fraîcheur.</li>
+            <li>Le fret aérien et la manutention augmentent les coûts.</li>
+            <li>L'instabilité d'approvisionnement crée un risque pour les menus des chefs.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="tag gold">Avantage local</span>
+          <h3>Récolte le jour même, approvisionnement hebdomadaire fiable</h3>
+          <p>Une production contrôlée dans le corridor nord-est peut approvisionner Santo Domingo, Punta Cana, Cap Cana et Casa de Campo en quelques heures.</p>
+          <ul class="list">
+            <li>Meilleure durée de vie à la livraison.</li>
+            <li>Risque logistique réduit.</li>
+            <li>Qualité constante pour les menus hôteliers.</li>
+          </ul>
+        </article>
+        <article class="card dark-card">
+          <span class="tag">Objectif stratégique</span>
+          <h3>Construire une plateforme agricole rentable et réplicable</h3>
+          <p>L'installation est conçue pour atteindre 150K$ à 250K$ de revenus mensuels durant la première année d'exploitation grâce à une montée en charge progressive et une demande contractualisée.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="founder">
+      <div class="section-head">
+        <div>
+          <span class="tag">Fondateur profile</span>
+          <h2>Bernard Balmir : fondateur, opérateur et bâtisseur de systèmes alimentaires résilients.</h2>
+        </div>
+        <p>
+          Ce projet n'est pas une simple idée sur papier. C'est l'étape suivante après des années de développement de Balponics,
+          d'étude de l'agriculture en environnement contrôlé, de construction de relations de marché et de conception d'un modèle capable
+          de servir l'économie hôtelière caribéenne avec une alimentation plus fraîche, plus propre et plus locale.
+        </p>
+      </div>
+      <div class="founder-layout">
+        <div class="founder-photo">
+          <img src="assets/founder-bernard-balmir.png" alt="Bernard Balmir, fondateur de Balponics SymbioGreens">
+        </div>
+        <div>
+          <article class="card dark-card">
+            <span class="tag">Hydroponie et agriculture en environnement contrôlé</span>
+            <h3>Fondateur / CEO, Balponics</h3>
+            <p>
+              Depuis 2015, Bernard développe et teste des systèmes hydroponiques, NFT, tours verticales et cultures en environnement contrôlé
+              adaptés aux conditions tropicales dominicaines. Le plan de ferme repose sur une connaissance pratique de la gestion nutritive,
+              des cycles de culture, de la densité des tours, des micro-pousses, des pilotes commerciaux et des installations B2B.
+            </p>
+            <div class="statline" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+              <div class="metric"><strong>8+ yrs</strong><span>données d'exploitation hydroponique</span></div>
+              <div class="metric"><strong>15+</strong><span>pilotes et installations</span></div>
+              <div class="metric"><strong>DR</strong><span>focus CEA tropical</span></div>
+            </div>
+          </article>
+          <article class="card" style="margin-top: 1rem;">
+            <span class="tag gold">Projet Verdinova / Verda</span>
+            <h3>Leadership économie circulaire et infrastructure</h3>
+            <p>
+              Avec Verdinova, Bernard a développé des concepts d'économie circulaire et de biodigestion en République dominicaine,
+              reliant durabilité, valorisation des déchets, relations institutionnelles et stratégie environnementale à long terme.
+              Cette expérience renforce le positionnement de la ferme au-delà d'une simple entreprise de produits frais :
+              c'est une plateforme agricole résiliente et efficace en ressources.
+            </p>
+            <ul class="list">
+              <li>Développement de projet au niveau fondateur et coordination des partenaires.</li>
+              <li>Cadrage stratégique autour de la durabilité, de l'énergie propre et de l'impact local.</li>
+              <li>Capacité à communiquer avec investisseurs, institutions, opérateurs et acheteurs hôteliers.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+      <div class="grid-3" style="margin-top: 1rem;">
+        <article class="card">
+          <span class="tag blue">Échelle commerciale</span>
+          <h3>Télécom, fintech et distribution</h3>
+          <p>A construit et dirigé de grands canaux de vente, incluant télécom prépayé, réseaux fintech retail et développement d'affaires institutionnel dans la Caraïbe, l'Afrique et les Amériques.</p>
+        </article>
+        <article class="card">
+          <span class="tag clay">Agriculture et opérations</span>
+          <h3>Gestion agricole et industrielle</h3>
+          <p>Expérience incluant grandes opérations agricoles, coordination de parties prenantes, unités de transformation, reporting de durabilité et discipline opérationnelle structurée.</p>
+        </article>
+        <article class="card">
+          <span class="tag">Restauration et hôtellerie</span>
+          <h3>Intuition marché orientée chefs</h3>
+          <p>L'expérience en restauration et hôtellerie permet de relier la planification de production aux besoins des cuisines, à la fraîcheur, la fiabilité, la valeur menu et l'expérience client.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="vision">
+      <div class="section-head">
+        <div>
+          <span class="tag">Pourquoi ce projet</span>
+          <h2>Une ferme rentable qui répond aussi à un problème régional de résilience alimentaire.</h2>
+        </div>
+        <p>
+          SymbioGreens Balponics est conçu pour être rentable parce qu'il résout un vrai problème opérationnel :
+          l'hôtellerie haut de gamme dépend de produits spécialisés importés, chers, fragiles et lents.
+        </p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <span class="tag blue">Substitution aux importations</span>
+          <h3>Fraîcheur et proximité</h3>
+          <p>Produire près des centres de demande réduit la dépendance au fret aérien, protège la fraîcheur, diminue les pertes et donne aux chefs des listes de récolte hebdomadaires fiables au lieu d'un approvisionnement importé incertain.</p>
+        </article>
+        <article class="card">
+          <span class="tag">Adéquation ESG</span>
+          <h3>Logique eau, déchets et énergie</h3>
+          <p>L'hydroponie en circuit fermé, l'énergie solaire d'appoint, la livraison locale, le séchage des surplus et la réutilisation des substrats de champignons créent une narration ESG et durabilité forte.</p>
+        </article>
+        <article class="card">
+          <span class="tag gold">Systèmes pour resorts</span>
+          <h3>Micro-fermes sur site en service contractuel</h3>
+          <p>Les grands resorts peuvent accueillir de petits systèmes hydroponiques brandés, maintenus par Balponics sous contrat, tout en achetant intrants, plants, nutriments, maintenance et produits premium à la ferme principale.</p>
+        </article>
+      </div>
+      <div class="grid-2" style="margin-top: 1rem;">
+        <article class="card dark-card">
+          <span class="tag">Expansion régionale</span>
+          <h3>République dominicaine d'abord, Caraïbe ensuite</h3>
+          <p>
+            Une fois le modèle validé dans le nord-est, il pourra être répliqué près de Punta Cana, Cap Cana, Puerto Plata,
+            Casa de Campo et d'autres zones de demande. La même logique s'étend ensuite aux îles dépendantes des importations,
+            comme la Barbade, la Martinique et la Guadeloupe, où les produits spécialisés importés depuis la métropole ou
+            des chaînes d'approvisionnement lointaines sont chers et vulnérables.
+          </p>
+        </article>
+        <article class="card">
+          <span class="tag clay">Résultat stratégique</span>
+          <h3>Construire une plateforme, pas seulement une ferme</h3>
+          <p>
+            La vision à long terme est un réseau de fermes en environnement contrôlé et de systèmes hôteliers maintenus sous contrat,
+            afin de localiser l'approvisionnement premium des économies touristiques, créer des emplois, réduire l'exposition logistique
+            et rendre l'hôtellerie caribéenne plus résiliente.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="location">
+      <div class="section-head">
+        <div>
+          <span class="tag">Emplacement stratégique</span>
+          <h2>Las Terrenas, Sanchez ou Rio San Juan comme corridor opérationnel.</h2>
+        </div>
+        <p>
+          Le nord-est offre au projet des coûts fonciers plus bas, une proximité avec le tourisme de luxe, une histoire écotouristique
+          et un accès direct aux marchés hôteliers les plus précieux du pays.
+        </p>
+      </div>
+      <div class="statline">
+        <div class="statbox"><strong>3</strong><span>options de sites prioritaires</span></div>
+        <div class="statbox"><strong>4</strong><span>marchés majeurs de demande</span></div>
+        <div class="statbox"><strong>80%</strong><span>économies d'eau visées</span></div>
+        <div class="statbox"><strong>80%</strong><span>couverture solaire visée</span></div>
+      </div>
+    </section>
+
+    <section id="systems">
+      <div class="section-head">
+        <div>
+          <span class="tag">Systèmes de production</span>
+          <h2>Quatre systèmes de culture complémentaires, une installation intégrée.</h2>
+        </div>
+        <p>Chaque module répond à un besoin différent des acheteurs premium tout en partageant l'eau, la chaîne du froid, l'emballage et l'infrastructure commerciale.</p>
+      </div>
+      <div class="grid-4">
+        <article class="image-card info-card" data-info="hydroponic-towers" tabindex="0" role="button" aria-label="En savoir plus sur les tours hydroponiques">
+          <img src="assets/tower-aisle.png" alt="Allée de tours hydroponiques verticales avec feuilles vertes">
+          <div class="caption">
+            <span class="tag">Tours hydroponiques</span>
+            <h3>500 tours en phase 1</h3>
+            <p>Tours de 8 pouces de diamètre et 8 pieds de haut, avec 80 sites de plantation chacune, soit 40 000 plants par cycle.</p>
+            <div class="crop-cloud">
+              <span class="chip" data-info="thai-basil">Thai basil</span><span class="chip" data-info="shiso">shiso</span><span class="chip" data-info="mint">mint</span><span class="chip" data-info="tarragon">tarragon</span><span class="chip" data-info="gotu-kola">gotu kola</span>
+            </div>
+          </div>
+        </article>
+        <article class="image-card info-card" data-info="microgreens-system" tabindex="0" role="button" aria-label="En savoir plus sur les systèmes de micro-pousses">
+          <img src="assets/microgreens-room.png" alt="Racks intérieurs de production de micro-pousses">
+          <div class="caption">
+            <span class="tag blue">Microgreens</span>
+            <h3>8 000 à 9 000 plateaux</h3>
+            <p>200 m2 au sol avec racks à 5 niveaux et cycles de production de 7 à 10 jours.</p>
+            <div class="crop-cloud">
+              <span class="chip" data-info="radish-microgreens">radish</span><span class="chip" data-info="amaranth-microgreens">amaranth</span><span class="chip" data-info="pea-shoots">pea shoots</span><span class="chip" data-info="mustard-microgreens">mustard</span><span class="chip" data-info="broccoli-microgreens">broccoli</span>
+            </div>
+          </div>
+        </article>
+        <article class="image-card info-card" data-info="mushroom-system" tabindex="0" role="button" aria-label="En savoir plus sur les systèmes de champignons gastronomiques">
+          <img src="assets/mushroom-room.png" alt="Salle de culture de champignons gastronomiques avec pleurotes et lion's mane">
+          <div class="caption">
+            <span class="tag clay">Champignons</span>
+            <h3>2 000 kg par mois</h3>
+            <p>Salles de culture intérieures pour gastronomie moderne et produits orientés bien-être.</p>
+            <div class="crop-cloud">
+              <span class="chip" data-info="lions-mane">lion's mane</span><span class="chip" data-info="king-oyster">king oyster</span><span class="chip" data-info="shiitake">shiitake</span><span class="chip" data-info="enoki">enoki</span>
+            </div>
+          </div>
+        </article>
+        <article class="image-card info-card" data-info="specialty-substrate" tabindex="0" role="button" aria-label="En savoir plus sur les cultures spécialisées sur substrat">
+          <img src="assets/nft-herbs.png" alt="Canaux hydroponiques NFT avec herbes et cultures feuillues">
+          <div class="caption">
+            <span class="tag gold">Substrats spécialisés</span>
+            <h3>Cultures à racines plus développées</h3>
+            <p>Les systèmes sur substrat accueillent des cultures souvent importées par les cuisines asiatiques, bien-être et hôtelières.</p>
+            <div class="crop-cloud">
+              <span class="chip" data-info="kaffir-lime">kaffir lime</span><span class="chip" data-info="pandan">pandan</span><span class="chip" data-info="lemongrass">lemongrass</span><span class="chip" data-info="curry-leaves">curry leaves</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="facility-visuals">
+      <div class="section-head">
+        <div>
+          <span class="tag">Visuels des installations</span>
+          <h2>Images reliées à l'histoire de production.</h2>
+        </div>
+        <p>Ces visuels soutiennent la présentation : preuve produit, design système, diversité des cultures et montée en échelle commerciale.</p>
+      </div>
+      <div class="grid-4">
+        <article class="image-card info-card" data-info="microgreens-room" tabindex="0" role="button" aria-label="En savoir plus sur la salle de micro-pousses">
+          <img src="assets/microgreens-rack.png" alt="Microgreens trays under irrigation in a controlled room">
+          <div class="caption">
+            <span class="tag blue">Salle de micro-pousses</span>
+            <h3>Plateaux à cycle court</h3>
+            <p>Radis, pousses de pois, moutarde, brocoli, tournesol et amarante cultivés sur cycles courts.</p>
+          </div>
+        </article>
+        <article class="image-card info-card" data-info="indoor-rack-system" tabindex="0" role="button" aria-label="En savoir plus sur les racks intérieurs">
+          <img src="assets/commercial-rack.png" alt="Commercial rack system for leafy greens">
+          <div class="caption">
+            <span class="tag">Système de racks intérieurs</span>
+            <h3>Jeunes pousses évolutives</h3>
+            <p>La production sur racks soutient jeunes pousses, départs médicinaux et cultures feuillues spécialisées.</p>
+          </div>
+        </article>
+        <article class="image-card info-card" data-info="leafy-varieties" tabindex="0" role="button" aria-label="En savoir plus sur les variétés feuillues">
+          <img src="assets/leafy-varieties.png" alt="Leafy greens varieties growing in a vertical tower">
+          <div class="caption">
+            <span class="tag gold">Variété de cultures</span>
+            <h3>Laitues, bok choy et brassicacées</h3>
+            <p>Support visuel pour le portefeuille de feuilles premium et les dégustations chefs.</p>
+          </div>
+        </article>
+        <article class="image-card info-card" data-info="greenhouse-substrate" tabindex="0" role="button" aria-label="En savoir plus sur les serres sur substrat">
+          <img src="assets/greenhouse-vines.png" alt="Cultures palissées en serre dans des conteneurs de substrat">
+          <div class="caption">
+            <span class="tag clay">Serre sur substrat</span>
+            <h3>Cultures spécialisées à grand système racinaire</h3>
+            <p>Référence utile pour les cultures nécessitant volume racinaire, palissage ou systèmes en conteneurs.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="crop-portfolio">
+      <div class="section-head">
+        <div>
+          <span class="tag">Portefeuille de cultures</span>
+          <h2>Revenus frais, transformés et expérientiels issus de la même plateforme biologique.</h2>
+        </div>
+        <p>La sélection des cultures privilégie le prix élevé au mètre carré, les cycles rapides, la substitution aux importations et l'utilisation en frais comme en séché.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <span class="tag">Plantes médicinales</span>
+          <h3>Canal bien-être et nutraceutique</h3>
+          <p>Tulsi, gotu kola, mélisse, moringa, stevia, ashwagandha, gingembre et curcuma, frais ou séchés.</p>
+        </article>
+        <article class="card">
+          <span class="tag blue">Transformation à valeur ajoutée</span>
+          <h3>Herbes séchées, tisanes et poudres de champignons</h3>
+          <p>Les surplus deviennent tisanes stables, mélanges d'assaisonnement, poudre de lion's mane et poudre de shiitake.</p>
+        </article>
+        <article class="card">
+          <span class="tag gold">Agrotourisme</span>
+          <h3>Visites de ferme et expériences culinaires</h3>
+          <p>Visites hydroponiques guidées, récoltes avec chefs, dîners de la ferme à la table et ateliers de tisanes ajoutent du revenu et renforcent les relations acheteurs.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="financials">
+      <div class="section-head">
+        <div>
+          <span class="tag">Modèle financier interactif</span>
+          <h2>Modifiez l'utilisation et visualisez l'exploitation mensuelle.</h2>
+        </div>
+        <p>La base utilise les fourchettes du plan. Les boutons chargent les hypothèses conservatrice, de base et d'expansion.</p>
+      </div>
+
+      <div class="scenario-tabs" role="group" aria-label="Scenario controls">
+        <button class="tab active" data-scenario="base">Scénario de base</button>
+        <button class="tab" data-scenario="conservative">Conservateur</button>
+        <button class="tab" data-scenario="upside">Hausse</button>
+      </div>
+
+      <div class="controls">
+        <label>Herbes hydroponiques mensuelles
+          <input id="herbs" type="number" min="0" step="1000" value="57500">
+        </label>
+        <label>Micro-pousses mensuelles
+          <input id="microgreens" type="number" min="0" step="1000" value="30000">
+        </label>
+        <label>Champignons mensuels
+          <input id="mushrooms" type="number" min="0" step="1000" value="24000">
+        </label>
+        <label>Cultures spécialisées mensuelles
+          <input id="specialty" type="number" min="0" step="1000" value="12500">
+        </label>
+        <label>Plantes médicinales mensuelles
+          <input id="medicinal" type="number" min="0" step="1000" value="10000">
+        </label>
+        <label>Produits séchés mensuels
+          <input id="dry" type="number" min="0" step="1000" value="10000">
+        </label>
+        <label>Agrotourisme mensuel
+          <input id="tourism" type="number" min="0" step="500" value="7000">
+        </label>
+        <label>Coûts d'exploitation mensuels
+          <input id="opex" type="number" min="0" step="500" value="29000">
+        </label>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <h3>Modèle de revenus</h3>
+          <table>
+            <thead><tr><th>Catégorie</th><th>Revenu mensuel</th></tr></thead>
+            <tbody id="revenueRows"></tbody>
+          </table>
+        </article>
+        <article class="card">
+          <h3>Projection sur trois ans</h3>
+          <table>
+            <thead><tr><th>Année</th><th>Revenus</th><th>Profit</th></tr></thead>
+            <tbody id="projectionRows"></tbody>
+          </table>
+        </article>
+      </div>
+
+      <div class="total-band">
+        <div>
+          <div class="tag">Résultat mensuel en direct</div>
+          <strong id="totalRevenue">$151,000</strong>
+          <p id="profitLine">Profit net estimé : 122 000 $ par mois</p>
+        </div>
+        <div>
+          <strong id="margin">81%</strong>
+          <p>marge opérationnelle estimée</p>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 1rem;">
+        <article class="card">
+          <h3>Base de coûts d'exploitation mise à jour</h3>
+          <table>
+            <thead><tr><th>Catégorie</th><th>Estimation mensuelle</th></tr></thead>
+            <tbody>
+              <tr><td>Main-d'oeuvre et personnel technique</td><td>$8,500</td></tr>
+              <tr><td>Services publics après compensation solaire</td><td>$2,500</td></tr>
+              <tr><td>Semences, nutriments, mycélium et supports de culture</td><td>$5,000</td></tr>
+              <tr><td>Emballages et fournitures de récolte</td><td>$2,500</td></tr>
+              <tr><td>Carburant, assurance véhicules et maintenance flotte</td><td>$3,500</td></tr>
+              <tr><td>Sécurité du site, maison du manager et entretien</td><td>$2,000</td></tr>
+              <tr><td>Maintenance équipements et pièces de rechange</td><td>$2,000</td></tr>
+              <tr><td>Fondateur / managing partner salary</td><td>$3,000</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>$29,000</strong></td></tr>
+            </tbody>
+          </table>
+        </article>
+        <article class="card">
+          <span class="tag">Note opérationnelle</span>
+          <h3>Flotte et installations sont maintenant incluses</h3>
+          <p>
+            Le modèle opérationnel reflète désormais une réalité de site plus complète : livraison réfrigérée,
+            pickups, stockage sécurisé, entretien des installations et logement/présence managériale. Il reste
+            lean pour une ferme premium, mais il est plus crédible qu'une base de coûts uniquement productive.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="customer-model">
+      <div class="section-head">
+        <div>
+          <span class="tag">Modèle d'acquisition clients</span>
+          <h2>L'objectif de 200K$ mensuels repose sur trois catégories d'acheteurs.</h2>
+        </div>
+        <p>La demande directe des chefs crée marge et visibilité, les contrats resorts créent du volume, et les distributeurs donnent une portée nationale.</p>
+      </div>
+      <div class="grid-2">
+        <article class="card">
+          <table>
+            <thead><tr><th>Type de client</th><th>Quantité</th><th>Revenu mensuel</th></tr></thead>
+            <tbody>
+              <tr><td>Hôtels</td><td>10</td><td>$80,000</td></tr>
+              <tr><td>Restaurants</td><td>30</td><td>$45,000</td></tr>
+              <tr><td>Distributeurs</td><td>3</td><td>$75,000</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>43 accounts</strong></td><td><strong>$200,000</strong></td></tr>
+            </tbody>
+          </table>
+        </article>
+        <article class="image-card">
+          <img src="assets/product-showroom.png" alt="Showroom produit Balponics avec tours et racks">
+          <div class="caption">
+            <span class="tag">Ventes experience</span>
+            <h3>Montrer le système, puis vendre la récolte</h3>
+            <p>Visites de ferme, dégustations chefs et listes de récolte hebdomadaires transforment la transparence de production en avantage commercial.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="investment">
+      <div class="section-head">
+        <div>
+          <span class="tag">CapEx et capitalisation de lancement</span>
+          <h2>Budget complet de lancement de 1,145M$ incluant terrain, installations, flotte et valeur de formation du fondateur.</h2>
+        </div>
+        <p>Le précédent plan d'équipement à 300K$ ne couvrait que la base productive. Cette version reflète le besoin réel de lancement : site détenu, logement/installations, logistique, résilience opérationnelle et travail de formation déjà accompli par le fondateur.</p>
+      </div>
+      <div class="grid-2">
+        <article class="card">
+          <table>
+            <thead><tr><th>Affectation</th><th>Montant</th></tr></thead>
+            <tbody>
+              <tr><td>Achat du terrain, frais de clôture et titres</td><td>$250,000</td></tr>
+              <tr><td>Maison de plain-pied pour le manager, bureau, espaces personnel et stockage sécurisé</td><td>$85,000</td></tr>
+              <tr><td>Structure de serre, nivellement, drainage, réservoirs d'eau et préparation du site</td><td>$140,000</td></tr>
+              <tr><td>Infrastructure hydroponique</td><td>$120,000</td></tr>
+              <tr><td>Microgreens facility</td><td>$35,000</td></tr>
+              <tr><td>Mushroom rooms</td><td>$45,000</td></tr>
+              <tr><td>Installation solaire et résilience électrique</td><td>$55,000</td></tr>
+              <tr><td>Séchoir et transformation à valeur ajoutée</td><td>$20,000</td></tr>
+              <tr><td>Chambre froide et ligne d'emballage</td><td>$35,000</td></tr>
+              <tr><td>Camion de livraison réfrigéré</td><td>$55,000</td></tr>
+              <tr><td>Deux pickups / véhicules de gestion</td><td>$60,000</td></tr>
+              <tr><td>Emballage, mise en place logistique et inventaire initial</td><td>$20,000</td></tr>
+              <tr><td>Permis, services professionnels et coûts préouverture</td><td>$20,000</td></tr>
+              <tr><td>Réserve de fonds de roulement</td><td>$60,000</td></tr>
+              <tr><td>Contingence</td><td>$45,000</td></tr>
+              <tr><td>Bonus de formation / origination du fondateur</td><td>$100,000</td></tr>
+              <tr><td><strong>Total capitalisation complète de lancement</strong></td><td><strong>$1,145,000</strong></td></tr>
+            </tbody>
+          </table>
+        </article>
+        <article class="card dark-card">
+          <span class="tag">Pourquoi ce CapEx plus complet est important</span>
+          <h3>Détenir la base opérationnelle protège la valeur de l'entreprise</h3>
+          <p>Terrain, logement, stockage, chaîne du froid et véhicules transforment le projet d'une simple installation d'équipements en entreprise opérationnelle durable avec contrôle logistique, valeur d'actifs et capacité d'expansion.</p>
+          <div class="timeline">
+            <div class="step"><strong>Site</strong><span>Acheter un terrain dans le corridor nord-est avec suffisamment d'espace pour l'expansion des serres, les visites et les futurs modules de production.</span></div>
+            <div class="step"><strong>Facilities</strong><span>Construire une maison de plain-pied pour le manager avec bureau, soutien au personnel, stockage sécurisé, zone de produits secs et contrôle des opérations.</span></div>
+            <div class="step"><strong>Fleet</strong><span>Ajouter un camion réfrigéré et deux pickups / véhicules de gestion pour les achats, les visites commerciales et les opérations quotidiennes.</span></div>
+            <div class="step"><strong>Production</strong><span>Installer les tours hydroponiques, racks de micro-pousses, salles de champignons, séchage, froid, solaire et infrastructure d'emballage.</span></div>
+            <div class="step"><strong>Formation</strong><span>Reconnaître la recherche développée par le fondateur, la stratégie de cultures, le design opérationnel, le positionnement acheteurs, la planification fournisseurs et l'assemblage du projet via un bonus proportionnel.</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="investor">
+      <div class="section-head">
+        <div>
+          <span class="tag">Calculateur d'équité investisseur</span>
+          <h2>La contribution se convertit en équité jusqu'à un maximum de 30 %.</h2>
+        </div>
+        <p>Sur la base du budget complet de 1,145M$, chaque dollar investi donne droit à une équité proportionnelle, plafonnée à 30 % d'équité totale investisseur. Le bonus de formation du fondateur est aussi proportionnel au capital financé et plafonné à 100K$.</p>
+      </div>
+      <div class="grid-2">
+        <article class="card">
+          <label>Contribution investisseur
+            <input id="contribution" type="number" min="0" step="5000" value="100000">
+          </label>
+          <label style="margin-top: 1rem;">Objectif de levée
+            <input id="raiseTarget" type="number" min="1" step="10000" value="1145000">
+          </label>
+          <label style="margin-top: 1rem;">Fondateur bonus cap
+            <input id="founderBonusCap" type="number" min="0" step="5000" value="100000">
+          </label>
+          <label style="margin-top: 1rem;">Équité maximale disponible
+            <input id="maxEquity" type="number" min="1" max="100" step="1" value="30">
+          </label>
+          <div class="progress" aria-hidden="true"><span id="raiseProgress"></span></div>
+        </article>
+        <article class="card dark-card">
+          <span class="tag">Offre calculée</span>
+          <h3 id="equityResult">2,62 % d'équité</h3>
+          <p id="equityDetail">Une contribution de 100 000 $ représente 8,7 % de l'objectif de 1 145 000 $, produisant 2,62 % d'équité sous le plafond de 30 %.</p>
+          <p id="bonusDetail">Bonus de formation du fondateur à cette contribution : 8 734 $. Le financement complet libère le bonus plafonné à 100 000 $.</p>
+          <p id="capNote">Le plafond protège l'entreprise : même les contributions au-dessus de l'objectif ne dépassent pas le pool maximal d'équité.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="valuation">
+      <div class="section-head">
+        <div>
+          <span class="tag">Calculateur valorisation et ROI</span>
+          <h2>Modéliser la valeur de l'entreprise et le retour investisseur à partir des hypothèses opérationnelles en direct.</h2>
+        </div>
+        <p>
+          Ce module utilise le modèle actuel de revenus/profits, la contribution de l'investisseur et des hypothèses de valorisation ajustables.
+          Il est conçu pour les discussions en direct, pas comme valorisation financière définitive.
+        </p>
+      </div>
+      <div class="controls">
+        <label>Multiple EBITDA / profit
+          <input id="profitMultiple" type="number" min="1" step="0.5" value="6">
+        </label>
+        <label>Multiple de revenus
+          <input id="revenueMultiple" type="number" min="0.1" step="0.1" value="1.5">
+        </label>
+        <label>Durée de détention en années
+          <input id="holdYears" type="number" min="1" step="1" value="5">
+        </label>
+        <label>Distribution de dividendes sur profit annuel
+          <input id="dividendPayout" type="number" min="0" max="100" step="5" value="30">
+        </label>
+      </div>
+      <div class="grid-4">
+        <article class="statbox">
+          <strong id="profitValuation">$8.8M</strong>
+          <span>valorisation par multiple de profit</span>
+        </article>
+        <article class="statbox">
+          <strong id="revenueValuation">$2.7M</strong>
+          <span>valorisation par multiple de revenus</span>
+        </article>
+        <article class="statbox">
+          <strong id="blendedValuation">$5.8M</strong>
+          <span>valorisation combinée de l'entreprise</span>
+        </article>
+        <article class="statbox">
+          <strong id="investorReturn">$158K</strong>
+          <span>retour total estimé investisseur</span>
+        </article>
+      </div>
+      <div class="total-band">
+        <div>
+          <div class="tag">Investisseur ROI output</div>
+          <strong id="roiMultiple">1.58x</strong>
+          <p id="roiDetail">Multiple de retour estimé basé sur la valeur de l'équité plus les dividendes.</p>
+        </div>
+        <div>
+          <strong id="annualizedRoi">10%</strong>
+          <p>ROI annualisé estimé</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="go-to-market">
+      <div class="section-head">
+        <div>
+          <span class="tag">Stratégie marketing et ventes</span>
+          <h2>Orienté chefs, prêt pour resorts, extensible via distributeurs.</h2>
+        </div>
+        <p>Positionnement : frais, local, durable, orienté chefs.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <span class="tag blue">Approvisionnement direct des chefs</span>
+          <h3>Marge et influence menu</h3>
+          <p>Micro-pousses, fleurs comestibles, herbes et feuilles spécialisées à forte marge vendues via listes de récolte hebdomadaires et dégustations.</p>
+        </article>
+        <article class="card">
+          <span class="tag gold">Contrats d'approvisionnement resorts</span>
+          <h3>Volume et stabilité</h3>
+          <p>Approvisionnement récurrent en herbes, champignons, jeunes pousses et plantes médicinales pour cuisines hôtelières et programmes bien-être.</p>
+        </article>
+        <article class="card">
+          <span class="tag clay">Partenariats distributeurs</span>
+          <h3>Portée nationale</h3>
+          <p>Partenaires ciblés : Hôtelsa, Vima Dominicana et Interfoods Dominicana pour une couverture élargie.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="swot">
+      <div class="section-head">
+        <div>
+          <span class="tag">Analyse SWOT</span>
+          <h2>Fort potentiel opérationnel avec risques techniques et commerciaux clairement identifiés.</h2>
+        </div>
+      </div>
+      <div class="grid-4">
+        <article class="card"><h3>Forces</h3><ul class="list"><li>Production hydroponique haute densité.</li><li>Culture contrôlée toute l'année.</li><li>Flux de revenus diversifiés.</li><li>Demande portée par le tourisme.</li></ul></article>
+        <article class="card"><h3>Faiblesses</h3><ul class="list"><li>Investissement en capital requis.</li><li>Expertise technique nécessaire.</li><li>L'exécution commerciale doit être disciplinée.</li></ul></article>
+        <article class="card"><h3>Opportunités</h3><ul class="list"><li>Remplacement des importations.</li><li>Croissance bien-être et nutraceutique.</li><li>Positionnement écotouristique.</li></ul></article>
+        <article class="card"><h3>Menaces</h3><ul class="list"><li>Volatilité des prix.</li><li>Perturbations logistiques.</li><li>Arrivée de nouveaux concurrents.</li></ul></article>
+      </div>
+    </section>
+
+    <section id="conclusion">
+      <div class="section-head">
+        <div>
+          <span class="tag">Conclusion stratégique finale</span>
+          <h2>Une ferme compacte, premium et diversifiée au service des marchés culinaires et bien-être.</h2>
+        </div>
+        <p>
+          Le modèle maximise le revenu au mètre carré en combinant hydroponie verticale, micro-pousses,
+          champignons gastronomiques, plantes médicinales, transformation et agrotourisme dans une plateforme réplicable.
+        </p>
+      </div>
+      <div class="grid-2">
+        <article class="image-card">
+          <img src="assets/tower-close.png" alt="Close-up of leafy greens growing in vertical hydroponic towers">
+          <div class="caption">
+            <span class="tag">Validation de production</span>
+            <h3>La capacité soutient un revenu de base supérieur à 130K$ par mois</h3>
+            <p>1 200 à 1 300 kg d'herbes, 8 000 à 9 000 plateaux de micro-pousses et environ 2 000 kg de champignons par mois.</p>
+          </div>
+        </article>
+        <article class="card dark-card">
+          <h3>Thèse d'investissement</h3>
+          <p>Avec une concurrence locale limitée, une forte demande hôtelière et un mix produit vendu en frais, séché et expérientiel, SymbioGreens Balponics peut devenir un fournisseur premium défendable en République dominicaine.</p>
+          <button class="button primary" onclick="window.print()">Imprimer ou enregistrer la présentation</button>
+          <a class="download-link primary" href="SymbioGreens-Balponics-Presentation-FR.pdf" download>Télécharger le PDF</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    SymbioGreens Balponics | Nord-Est de la République dominicaine | Agriculture spécialisée en environnement contrôlé
+  </footer>
+
+  <div class="modal-backdrop" id="infoModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <header>
+        <div>
+          <span class="tag" id="modalTag">Fiche information</span>
+          <h3 id="modalTitle">Title</h3>
+        </div>
+        <button class="close-modal" id="closeModal" aria-label="Close">x</button>
+      </header>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    const money = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+    const fields = ["herbs", "microgreens", "mushrooms", "specialty", "medicinal", "dry", "tourism", "opex"];
+    const labels = {
+      herbs: "Hydroponic herbs",
+      microgreens: "Microgreens",
+      mushrooms: "Champignons",
+      specialty: "Specialty crops",
+      medicinal: "Plantes médicinales",
+      dry: "Dry products",
+      tourism: "Agrotourisme"
+    };
+
+    const scenarios = {
+      conservative: { herbs: 50000, microgreens: 28000, mushrooms: 22000, specialty: 10000, medicinal: 8000, dry: 5000, tourism: 6000, opex: 26000 },
+      base: { herbs: 57500, microgreens: 30000, mushrooms: 24000, specialty: 12500, medicinal: 10000, dry: 10000, tourism: 7000, opex: 29000 },
+      upside: { herbs: 65000, microgreens: 32000, mushrooms: 40000, specialty: 25000, medicinal: 18000, dry: 25000, tourism: 10000, opex: 38000 }
+    };
+
+    const infoCards = {
+      "hydroponic-towers": {
+        tag: "Système de production",
+        title: "Tours hydroponiques verticales",
+        body: "Les tours hydroponiques empilent les sites de plantation en hauteur, ce qui permet une forte densité de production sur une empreinte compacte. En circuit fermé, la solution nutritive est recirculée au lieu d'être perdue dans le sol, ce qui réduit fortement l'usage d'eau. Pour ce projet, elles sont particulièrement adaptées aux herbes et feuilles à cycle rapide où fraîcheur, régularité et présentation comptent pour les chefs.",
+        sources: [["Oklahoma State Extension", "https://extension.okstate.edu/fact-sheets/hydroponics.html"], ["University of Minnesota Extension", "https://extension.umn.edu/how/small-scale-hydroponics"]]
+      },
+      "microgreens-system": {
+        tag: "Système de production",
+        title: "Production de micro-pousses sur racks",
+        body: "Les micro-pousses sont de jeunes plantules comestibles récoltées peu après la germination. Elles ont de la valeur grâce à leurs cycles courts, leur qualité visuelle et leurs pigments/phytonutriments concentrés selon les variétés. Les racks multiplient la surface cultivée verticalement.",
+        sources: [["USDA ARS", "https://www.ars.usda.gov/news-events/news/research-news/2012/microgreens-are-nutrient-rich/"], ["University of Florida IFAS", "https://edis.ifas.ufl.edu/publication/HS1164"]]
+      },
+      "mushroom-system": {
+        tag: "Système de production",
+        title: "Salles de champignons gastronomiques",
+        body: "Les salles de champignons transforment humidité, air et substrats contrôlés en production culinaire premium. Pleurotes, shiitake et lion's mane intéressent les chefs pour leur texture, leur umami et leur positionnement bien-être.",
+        sources: [["Penn State Extension", "https://extension.psu.edu/mushroom-production"], ["NCBI", "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10094187/"]]
+      },
+      "specialty-substrate": {
+        tag: "Système de production",
+        title: "Cultures spécialisées sur substrat",
+        body: "Les systèmes sur substrat conviennent aux cultures demandant plus de volume racinaire ou une fenêtre de production plus longue. Feuilles de combava, pandan, citronnelle et feuilles de curry sont de bons candidats de substitution aux importations.",
+        sources: [["University of Florida IFAS", "https://edis.ifas.ufl.edu/publication/HS1238"], ["NCBI", "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3210002/"]]
+      },
+      "microgreens-room": {
+        tag: "Module d'installation",
+        title: "Avantage de la salle de micro-pousses",
+        body: "Une salle dédiée permet de mieux contrôler hygiène, lumière, circulation d'air et calendrier de récolte. L'avantage commercial est la vitesse : des cycles de 7 à 10 jours peuvent générer plusieurs récoltes mensuelles.",
+        sources: [["USDA ARS", "https://www.ars.usda.gov/news-events/news/research-news/2012/microgreens-are-nutrient-rich/"], ["University of Florida IFAS", "https://edis.ifas.ufl.edu/publication/HS1164"]]
+      },
+      "indoor-rack-system": {
+        tag: "Module d'installation",
+        title: "Systèmes de racks intérieurs",
+        body: "Les racks transforment une surface au sol en plusieurs niveaux de culture. Ils fonctionnent très bien pour des cultures uniformes, de hauteur prévisible et à rotation rapide.",
+        sources: [["University of Minnesota Extension", "https://extension.umn.edu/how/small-scale-hydroponics"], ["USDA ARS", "https://www.ars.usda.gov/news-events/news/research-news/2012/microgreens-are-nutrient-rich/"]]
+      },
+      "leafy-varieties": {
+        tag: "Catégorie de culture",
+        title: "Laitues, bok choy et brassicacées",
+        body: "Les feuilles vertes et brassicacées apportent abondance visuelle, familiarité pour les chefs et demande régulière. Elles servent de cultures d'ancrage aux côtés des herbes et micro-pousses à marge élevée.",
+        sources: [["USDA FoodData Central", "https://fdc.nal.usda.gov/"], ["University of Minnesota Extension", "https://extension.umn.edu/how/small-scale-hydroponics"]]
+      },
+      "greenhouse-substrate": {
+        tag: "Module d'installation",
+        title: "Serres sur substrat",
+        body: "Les systèmes sur substrat font le lien entre précision hydroponique et flexibilité de cultures. Ils permettent la production en conteneurs pour plantes à racines longues, tiges ligneuses ou croissance palissée.",
+        sources: [["University of Florida IFAS", "https://edis.ifas.ufl.edu/publication/HS1238"]]
+      },
+      "thai-basil": { tag: "Herbe", title: "Basilic thaï", body: "Le basilic thaï est recherché pour son arôme anisé et sa valeur culinaire en cuisine d'Asie du Sud-Est. Il se prête bien à l'hydroponie car les chefs veulent un produit frais, aromatique et intact.", sources: [["USDA FoodData Central", "https://fdc.nal.usda.gov/"]] },
+      "shiso": { tag: "Herbe", title: "Shiso / périlla", body: "Le shiso est une herbe premium japonaise et coréenne avec des notes de menthe, basilic et anis. Les travaux sur Perilla mettent en avant des composés phénoliques et une activité antioxydante.", sources: [["NCBI", "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6463634/"]] },
+      "mint": { tag: "Herbe", title: "Menthe", body: "La menthe est utilisée dans boissons, desserts, sauces, tisanes et menus hôteliers. Son arôme fort rend la fraîcheur immédiatement perceptible, ce qui favorise l'approvisionnement local.", sources: [["USDA FoodData Central", "https://fdc.nal.usda.gov/"], ["NCBI", "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6864623/"]] },
+      "tarragon": { tag: "Herbe", title: "Estragon", body: "L'estragon est une herbe classique de la cuisine française, utilisée dans sauces, volailles et fruits de mer. Sa qualité dépend beaucoup de l'arôme et de la tendreté des feuilles.", sources: [["USDA FoodData Central", "https://fdc.nal.usda.gov/"]] },
+      "gotu-kola": { tag: "Plante médicinale", title: "Gotu kola", body: "Le gotu kola est utilisé comme feuille culinaire et plante médicinale dans plusieurs traditions. Les revues scientifiques évoquent les triterpènes et des recherches dermatologiques, ce qui soutient un positionnement bien-être.", sources: [["NCBI", "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3116297/"]] },
+      "radish-microgreens": { tag: "Micro-pousse", title: "Micro-pousses de radis", body: "Les micro-pousses de radis sont rapides, colorées et piquantes. Elles sont populaires en dressage et apportent un impact gustatif important en petite quantité.", sources: [["USDA ARS", "https://www.ars.usda.gov/news-events/news/research-news/2012/microgreens-are-nutrient-rich/"]] },
+      "amaranth-microgreens": { tag: "Micro-pousse", title: "Micro-pousses d'amarante", body: "Les micro-pousses d'amarante apportent une couleur rouge vive et une saveur délicate. Leur impact visuel les rend utiles pour les menus dégustation.", sources: [["USDA ARS", "https://www.ars.usda.gov/news-events/news/research-news/2012/microgreens-are-nutrient-rich/"]] },
+      "pea-shoots": { tag: "Micro-pousse", title: "Pousses de pois", body: "Les pousses de pois sont tendres, douces et familières aux chefs. Elles peuvent servir en garniture, salade ou cuisson rapide.", sources: [["USDA FoodData Central", "https://fdc.nal.usda.gov/"]] },
+      "mustard-microgreens": { tag: "Micro-pousse", title: "Micro-pousses de moutarde", body: "Les micro-pousses de moutarde apportent chaleur poivrée et caractère brassica. Elles sont idéales comme ingrédient premium à fort impact.", sources: [["USDA ARS", "https://www.ars.usda.gov/news-events/news/research-news/2012/microgreens-are-nutrient-rich/"]] },
+      "broccoli-microgreens": { tag: "Micro-pousse", title: "Micro-pousses de brocoli", body: "Les micro-pousses de brocoli sont reconnues dans les marchés bien-être pour leurs composés de type glucosinolates, selon les variétés et conditions de culture.", sources: [["NCBI", "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7584513/"]] },
+      "lions-mane": { tag: "Champignon", title: "Lion's mane", body: "Le lion's mane est un champignon culinaire et fonctionnel premium. Il soutient des formats frais, séchés et en poudre à forte valeur.", sources: [["NCBI", "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10675414/"]] },
+      "king-oyster": { tag: "Champignon", title: "King oyster", body: "Le king oyster possède une tige dense et une texture charnue très appréciée des chefs, notamment poêlée ou en substitut de textures de viande/fruits de mer.", sources: [["NCBI", "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10094187/"]] },
+      "shiitake": { tag: "Champignon", title: "Shiitake", body: "Le shiitake est reconnu mondialement pour son umami, sa texture et sa valeur en produit séché. Il convient au frais comme aux poudres.", sources: [["NCBI", "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10094187/"]] },
+      "enoki": { tag: "Champignon", title: "Enoki", body: "L'enoki est délicat, distinctif visuellement et associé à la cuisine asiatique. Sa fragilité favorise la production locale.", sources: [["NCBI", "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10094187/"]] },
+      "kaffir-lime": { tag: "Culture spécialisée", title: "Feuilles de combava", body: "Les feuilles de combava apportent un arôme citronné intense aux cuisines thaïe, indonésienne et fusion. La production locale peut remplacer des sachets importés coûteux.", sources: [["NCBI", "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4690266/"]] },
+      "pandan": { tag: "Culture spécialisée", title: "Feuilles de pandan", body: "Le pandan est une feuille tropicale parfumée utilisée dans desserts, riz et boissons d'Asie du Sud-Est. Elle soutient un récit culinaire et bien-être.", sources: [["NCBI", "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8281216/"]] },
+      "lemongrass": { tag: "Culture spécialisée", title: "Citronnelle", body: "La citronnelle est utilisée dans tisanes, bouillons, cocktails, spas et cuisine asiatique. Elle offre des ventes en frais et en mélanges séchés.", sources: [["NCBI", "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3210002/"]] },
+      "curry-leaves": { tag: "Culture spécialisée", title: "Feuilles de curry", body: "Les feuilles de curry sont très aromatiques et difficiles à remplacer fraîches. Elles ajoutent de la valeur aux cuisines sud-asiatiques et au récit bien-être.", sources: [["NCBI", "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7345155/"]] }
+    };
+
+    function value(id) {
+      return Number(document.getElementById(id).value || 0);
+    }
+
+    function updateFinances() {
+      const revenueKeys = fields.filter((id) => id !== "opex");
+      const rows = revenueKeys.map((id) => `<tr><td>${labels[id]}</td><td>${money.format(value(id))}</td></tr>`).join("");
+      document.getElementById("revenueRows").innerHTML = rows;
+
+      const monthlyRevenue = revenueKeys.reduce((sum, id) => sum + value(id), 0);
+      const monthlyProfit = monthlyRevenue - value("opex");
+      const margin = monthlyRevenue > 0 ? Math.round((monthlyProfit / monthlyRevenue) * 100) : 0;
+
+      document.getElementById("totalRevenue").textContent = money.format(monthlyRevenue);
+      document.getElementById("profitLine").textContent = `Profit net estimé : ${money.format(monthlyProfit)} par mois`;
+      document.getElementById("margin").textContent = `${margin}%`;
+
+      const growth = [1, 1.18, 1.38];
+      const costGrowth = [1, 1.08, 1.16];
+      document.getElementById("projectionRows").innerHTML = growth.map((g, index) => {
+        const annualRevenue = monthlyRevenue * 12 * g;
+        const annualCost = value("opex") * 12 * costGrowth[index];
+        return `<tr><td>Année ${index + 1}</td><td>${money.format(annualRevenue)}</td><td>${money.format(annualRevenue - annualCost)}</td></tr>`;
+      }).join("");
+
+      updateValuation();
+    }
+
+    function currentEquity() {
+      const contribution = Number(document.getElementById("contribution").value || 0);
+      const target = Math.max(1, Number(document.getElementById("raiseTarget").value || 1));
+      const maxEquity = Number(document.getElementById("maxEquity").value || 30);
+      const founderBonusCap = Number(document.getElementById("founderBonusCap").value || 0);
+      const percentOfRaise = contribution / target;
+      const equity = Math.min(maxEquity, percentOfRaise * maxEquity);
+      const founderBonus = Math.min(founderBonusCap, percentOfRaise * founderBonusCap);
+      return { contribution, target, maxEquity, founderBonusCap, founderBonus, percentOfRaise, equity };
+    }
+
+    function updateEquity() {
+      const { contribution, target, maxEquity, founderBonusCap, founderBonus, percentOfRaise, equity } = currentEquity();
+      const progress = Math.min(100, percentOfRaise * 100);
+
+      document.getElementById("equityResult").textContent = `${equity.toFixed(2)} % d\'équité`;
+      document.getElementById("equityDetail").textContent =
+        `${money.format(contribution)} de contribution représente ${(percentOfRaise * 100).toFixed(1)} % de l'objectif de ${money.format(target)}, produisant ${equity.toFixed(2)} % d'équité sous le plafond de ${maxEquity} %.`;
+      document.getElementById("bonusDetail").textContent =
+        `Bonus de formation du fondateur à cette contribution : ${money.format(founderBonus)}. Le financement complet libère le bonus plafonné à ${money.format(founderBonusCap)}.`;
+      document.getElementById("raiseProgress").style.width = `${progress}%`;
+      updateValuation();
+    }
+
+    function updateValuation() {
+      const revenueKeys = fields.filter((id) => id !== "opex");
+      const monthlyRevenue = revenueKeys.reduce((sum, id) => sum + value(id), 0);
+      const monthlyProfit = monthlyRevenue - value("opex");
+      const annualRevenue = monthlyRevenue * 12;
+      const annualProfit = monthlyProfit * 12;
+      const profitMultiple = Number(document.getElementById("profitMultiple")?.value || 6);
+      const revenueMultiple = Number(document.getElementById("revenueMultiple")?.value || 1.5);
+      const holdYears = Math.max(1, Number(document.getElementById("holdYears")?.value || 5));
+      const dividendPayout = Number(document.getElementById("dividendPayout")?.value || 0) / 100;
+      const { contribution, equity } = currentEquity();
+
+      const profitValuation = Math.max(0, annualProfit * profitMultiple);
+      const revenueValuation = Math.max(0, annualRevenue * revenueMultiple);
+      const blendedValuation = (profitValuation + revenueValuation) / 2;
+      const equityValue = blendedValuation * (equity / 100);
+      const dividends = Math.max(0, annualProfit * dividendPayout * holdYears * (equity / 100));
+      const totalReturn = equityValue + dividends;
+      const roiMultiple = contribution > 0 ? totalReturn / contribution : 0;
+      const annualized = roiMultiple > 0 ? (Math.pow(roiMultiple, 1 / holdYears) - 1) * 100 : 0;
+
+      document.getElementById("profitValuation").textContent = money.format(profitValuation);
+      document.getElementById("revenueValuation").textContent = money.format(revenueValuation);
+      document.getElementById("blendedValuation").textContent = money.format(blendedValuation);
+      document.getElementById("investorReturn").textContent = money.format(totalReturn);
+      document.getElementById("roiMultiple").textContent = `${roiMultiple.toFixed(2)}x`;
+      document.getElementById("annualizedRoi").textContent = `${Math.round(annualized)}%`;
+      document.getElementById("roiDetail").textContent =
+        `${equity.toFixed(2)} % d'équité est valorisé à ${money.format(equityValue)} à la sortie, plus des dividendes estimés de ${money.format(dividends)} sur ${holdYears} ans.`;
+    }
+
+    function openInfoCard(key) {
+      const card = infoCards[key];
+      if (!card) return;
+      document.getElementById("modalTag").textContent = card.tag;
+      document.getElementById("modalTitle").textContent = card.title;
+      document.getElementById("modalBody").innerHTML = `
+        <p>${card.body}</p>
+        <div>${card.sources.map(([label, href]) => `<a class="modal-source" href="${href}" target="_blank" rel="noreferrer">${label}</a>`).join("")}</div>
+      `;
+      document.getElementById("infoModal").classList.add("open");
+      document.getElementById("infoModal").setAttribute("aria-hidden", "false");
+    }
+
+    function closeInfoCard() {
+      document.getElementById("infoModal").classList.remove("open");
+      document.getElementById("infoModal").setAttribute("aria-hidden", "true");
+    }
+
+    fields.forEach((id) => document.getElementById(id).addEventListener("input", updateFinances));
+    ["contribution", "raiseTarget", "maxEquity", "founderBonusCap"].forEach((id) => document.getElementById(id).addEventListener("input", updateEquity));
+    ["profitMultiple", "revenueMultiple", "holdYears", "dividendPayout"].forEach((id) => document.getElementById(id).addEventListener("input", updateValuation));
+
+    document.querySelectorAll(".tab").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".tab").forEach((tab) => tab.classList.remove("active"));
+        button.classList.add("active");
+        const selected = scenarios[button.dataset.scenario];
+        Object.entries(selected).forEach(([id, amount]) => document.getElementById(id).value = amount);
+        updateFinances();
+      });
+    });
+
+    updateFinances();
+    updateEquity();
+
+    document.addEventListener("click", (event) => {
+      const trigger = event.target.closest("[data-info]");
+      if (trigger) {
+        event.stopPropagation();
+        openInfoCard(trigger.dataset.info);
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeInfoCard();
+      if ((event.key === "Enter" || event.key === " ") && event.target.matches("[data-info]")) {
+        event.preventDefault();
+        openInfoCard(event.target.dataset.info);
+      }
+    });
+
+    document.getElementById("closeModal").addEventListener("click", closeInfoCard);
+    document.getElementById("infoModal").addEventListener("click", (event) => {
+      if (event.target.id === "infoModal") closeInfoCard();
+    });
+  </script>
+</body>
+</html>
+
